@@ -11,7 +11,9 @@ import ru.geekbrains.entities.Role;
 import ru.geekbrains.entities.User;
 import ru.geekbrains.repositories.UserRepository;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +25,12 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+    public Optional<User> findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(()-> new UsernameNotFoundException("User " + username + " not found"));
         return new org.springframework.security.core.userdetails.User(user.getUsername(),
