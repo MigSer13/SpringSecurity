@@ -12,6 +12,12 @@ create table roles (
   primary key (id)
 );
 
+create table acceses (
+  id                    serial,
+  title                 varchar(50) not null,
+  primary key (id)
+);
+
 CREATE TABLE users_roles (
   user_id               bigint not null,
   role_id               int not null,
@@ -20,9 +26,21 @@ CREATE TABLE users_roles (
   foreign key (role_id) references roles (id)
 );
 
+CREATE TABLE roles_acceses (
+  role_id               bigint not null,
+  access_id               int not null,
+  primary key (role_id, access_id),
+  foreign key (role_id) references users (id),
+  foreign key (access_id) references access (id)
+);
+
 insert into roles (name)
 values
-('ROLE_USER'), ('ROLE_ADMIN');
+('ROLE_USER'), ('ROLE_ADMIN'), ('ROLE_READER');
+
+insert into acceses(title)
+values
+('READ_PAGES'), ('CHANGE_FIELD'), ('CREATE_ORDERS');
 
 insert into users (username, password, email)
 values
@@ -32,3 +50,9 @@ insert into users_roles (user_id, role_id)
 values
 (1, 1),
 (1, 2);
+
+insert into roles_access (role_id, access_id)
+values
+(1, 1),
+(1, 3),
+(3, 1);

@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68568a38-835f-46cb-831e-0e399a74aae5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/SpringSecurity.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/configs/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/controllers/ControllerForCheckSecurity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/entities/Access.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/geekbrains/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/geekbrains/entities/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +42,12 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.geekbrains.repositories" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\разное\Java\SpringSecurity\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.geekbrains.entities" />
+      <recent name="ru.geekbrains.repositories" />
     </key>
   </component>
   <component name="ServiceViewManager">

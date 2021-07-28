@@ -3,6 +3,7 @@ package ru.geekbrains.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -23,5 +24,11 @@ public class Role {
     public String getName() {
         return name;
     }
+
+    @ManyToMany
+    @JoinTable(name = "roles_access",
+                joinColumns = @JoinColumn(name = "role_id"),
+                inverseJoinColumns = @JoinColumn(name = "access_id"))
+    private Collection<Access> accesses;
 }
 
