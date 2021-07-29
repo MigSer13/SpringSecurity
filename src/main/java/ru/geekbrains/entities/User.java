@@ -29,23 +29,4 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id") )
     private Collection<Role> roles;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Collection<Role> getRoles() {
-        return roles;
-    }
 }

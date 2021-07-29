@@ -14,12 +14,7 @@ import java.security.Principal;
 @RestController
 @RequiredArgsConstructor
 public class ControllerForCheckSecurity {
-    private  UserService userService;
-
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     @GetMapping("/")
     public String homePage(){
