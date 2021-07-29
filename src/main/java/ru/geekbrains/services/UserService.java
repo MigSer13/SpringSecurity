@@ -1,29 +1,28 @@
 package ru.geekbrains.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.geekbrains.entities.Access;
 import ru.geekbrains.entities.Role;
 import ru.geekbrains.entities.User;
 import ru.geekbrains.repositories.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
-    private UserRepository userRepository;
-
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserRepository userRepository;
 
     public Optional<User> findByUsername(String username){
         return userRepository.findByUsername(username);
@@ -39,6 +38,14 @@ public class UserService implements UserDetailsService {
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+        Collection<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
+        for(Role role : roles){
+            simpleGrantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+            for(Access ac : role.getAccesses()){
+                simpleGrantedAuthorities.add(new SimpleGrantedAuthority(ac.getTitle()));
+            }
+        }
+        return simpleGrantedAuthorities;
+        //return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 }

@@ -17,18 +17,11 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     @ManyToMany
     @JoinTable(name = "roles_access",
                 joinColumns = @JoinColumn(name = "role_id"),
                 inverseJoinColumns = @JoinColumn(name = "access_id"))
     private Collection<Access> accesses;
+
 }
 

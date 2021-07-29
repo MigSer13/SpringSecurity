@@ -1,6 +1,8 @@
 package ru.geekbrains.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +32,7 @@ public class ControllerForCheckSecurity {
     }
 
     @GetMapping("/user_info")
+    @PreAuthorize("hasAuthority('READ_PAGES')")
     public String userPage(Principal principal){
         User user = userService.findByUsername(principal.getName()).orElseThrow(
                 ()-> new RuntimeException("User " + principal.getName() + " not found"));
