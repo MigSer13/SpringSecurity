@@ -32,7 +32,6 @@ public class ControllerForCheckSecurity {
     }
 
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('ADMIN')")
     public String adminPage(){
         return "admin";
     }

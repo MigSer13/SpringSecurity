@@ -36,7 +36,7 @@ CREATE TABLE roles_acceses (
 
 insert into roles (name)
 values
-('ROLE_USER'), ('ROLE_ADMIN'), ('ROLE_READER'), ('SUPERADMIN');
+('ROLE_USER'), ('ROLE_ADMIN'), ('SUPERADMIN'), ('ROLE_READER');
 
 insert into acceses(title)
 values

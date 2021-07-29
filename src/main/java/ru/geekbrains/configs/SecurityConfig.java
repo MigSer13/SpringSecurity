@@ -17,16 +17,11 @@ import ru.geekbrains.services.UserService;
 @Slf4j
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private UserService userService;
-
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //log.info("Dao Authentication Provider");
+        log.info("Dao Authentication Provider");
         http.authorizeRequests()
                 .antMatchers("/auth_page").authenticated()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN", "SUPERADMIN")
