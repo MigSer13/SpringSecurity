@@ -18,7 +18,7 @@ public class Role {
     private String name;
 
     @ManyToMany
-    @JoinTable(name = "roles_access",
+    @JoinTable(name = "roles_acceses",
                 joinColumns = @JoinColumn(name = "role_id"),
                 inverseJoinColumns = @JoinColumn(name = "access_id"))
     private Collection<Access> accesses;

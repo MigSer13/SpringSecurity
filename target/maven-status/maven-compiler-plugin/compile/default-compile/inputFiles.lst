@@ -1,0 +1,9 @@
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\entities\Access.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\entities\Role.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\entities\User.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\SpringSecurityApplication.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\configs\SecurityConfig.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\repositories\RoleRepository.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\controllers\ControllerForCheckSecurity.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\services\UserService.java
+D:\разное\Java\SpringSecurity\src\main\java\ru\geekbrains\repositories\UserRepository.java
