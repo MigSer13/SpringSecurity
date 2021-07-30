@@ -1,4 +1,4 @@
-create table users (
+CREATE TABLE users (
   id                    bigserial,
   username              varchar(30) not null unique,
   password              varchar(80) not null,
@@ -6,13 +6,13 @@ create table users (
   primary key (id)
 );
 
-create table roles (
+CREATE TABLE roles (
   id                    serial,
   name                  varchar(50) not null,
   primary key (id)
 );
 
-create table acceses (
+CREATE TABLE accesses (
   id                    serial,
   title                 varchar(50) not null,
   primary key (id)
@@ -26,21 +26,11 @@ CREATE TABLE users_roles (
   foreign key (role_id) references roles (id)
 );
 
-CREATE TABLE roles_acceses (
-  role_id               bigint not null,
-  access_id               int not null,
-  primary key (role_id, access_id),
-  foreign key (role_id) references roles (id),
-  foreign key (access_id) references acceses (id)
-);
 
 insert into roles (name)
 values
 ('ROLE_USER'), ('ROLE_ADMIN'), ('ROLE_SUPERADMIN'), ('ROLE_READER');
 
-insert into acceses(title)
-values
-('READ_PAGES'), ('CHANGE_FIELDS'), ('CREATE_ORDERS');
 
 insert into users (username, password, email)
 values
@@ -48,11 +38,25 @@ values
 
 insert into users_roles (user_id, role_id)
 values
-(1, 1),
-(1, 2);
+(1, 1);
 
-insert into roles_acceses (role_id, access_id)
+CREATE TABLE roles_accesses (
+  role_id               bigint not null,
+  access_id               int not null,
+  primary key (role_id, access_id),
+  foreign key (role_id) references roles (id),
+  foreign key (access_id) references accesses (id)
+);
+--
+insert into accesses(title)
 values
-(1, 1),
+('READ_PAGES'), ('CHANGE_FIELDS'), ('CREATE_ORDERS');
+
+
+--
+insert into roles_accesses (role_id, access_id)
+values
 (1, 2),
-(2, 1);
+(2, 1),
+(2, 2),
+(2, 3);

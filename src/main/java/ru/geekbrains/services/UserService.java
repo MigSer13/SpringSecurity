@@ -12,7 +12,6 @@ import ru.geekbrains.entities.Access;
 import ru.geekbrains.entities.Role;
 import ru.geekbrains.entities.User;
 import ru.geekbrains.repositories.UserRepository;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;

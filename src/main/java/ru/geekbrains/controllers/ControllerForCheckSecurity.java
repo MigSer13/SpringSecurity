@@ -32,7 +32,7 @@ public class ControllerForCheckSecurity {
     }
 
     @GetMapping("/user_info")
-    @PreAuthorize("hasAuthority('READ_PAGES')")
+    //@PreAuthorize("hasAuthority('READ_PAGES')")
     public String userPage(Principal principal){
         User user = userService.findByUsername(principal.getName()).orElseThrow(
                 ()-> new RuntimeException("User " + principal.getName() + " not found"));
